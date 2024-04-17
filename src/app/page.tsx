@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 interface postType {
@@ -16,7 +15,7 @@ export default function Home() {
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("/api/fetchPosts").then(result => result.json());
+        const response = await fetch("/api/fetchPosts", { cache: 'force-cache' }).then(result => result.json());
         console.log(response.fetchPosts);
         //setIsLoading(false);
         setPost(response.fetchPosts);
