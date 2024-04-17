@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import { MyPost } from '../../../models/mypost';
 import dbConnect from "../../../lib/dbConnect";
+import { headers } from "next/headers";
 
 export async function GET(req: Request, res: Response) {
+    const headersList = headers();
     // Connect to MongoDB
     await dbConnect();
 
